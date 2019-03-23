@@ -3,7 +3,17 @@
 #include <iostream>
 #include "linearSearchAlgorithm.cpp"
 #include "binarySearchAlgorithm.cpp"
+#include "insertionSortAlgorithm.cpp"
 using namespace std;
+
+
+
+void print(int A[], size_t n){
+	for(size_t i = 0; i < n; i++){
+		cout << A[i] << " ";
+	}
+	cout << "\n";
+}
 
 
 
@@ -27,7 +37,12 @@ int main(){
 	A[2] = 0;
 	cout << isSorted(A, 3) << "\n";
 	A[2] = 3; 
-	
+
+	size_t size = 10;
+	int Array [size] = { 1, 5, 3, 7, 2, 9, 8, 0, 6, 4 };
+	print(Array, size);
+	insertionSortAlgorithm(Array, size);
+	print(Array, size);
 	
 	return 0;
 }
