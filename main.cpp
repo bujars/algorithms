@@ -5,6 +5,7 @@
 #include "binarySearchAlgorithm.cpp"
 #include "insertionSortAlgorithm.cpp"
 #include "mergeSortAlgorithm.cpp"
+#include "heapSortAlgorithm.cpp"
 using namespace std;
 
 
@@ -46,6 +47,8 @@ int main(){
 	/*cout << "here?" << endl;*/
 	mergeSortAlgorithm(Array, size, 0, 9);
 	print(Array, size);
-	
+
+
+
 	return 0;
 }
