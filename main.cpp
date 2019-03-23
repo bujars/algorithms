@@ -45,7 +45,8 @@ int main(){
 	print(Array, size);
 	//insertionSortAlgorithm(Array, size);
 	/*cout << "here?" << endl;*/
-	mergeSortAlgorithm(Array, size, 0, 9);
+    //mergeSortAlgorithm(Array, size, 0, 9);
+	heapSortAlgorithm(Array, size);
 	print(Array, size);
 
 
