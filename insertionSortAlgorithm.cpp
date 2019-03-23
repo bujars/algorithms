@@ -1,6 +1,15 @@
 #include <cstdlib>
 using namespace std;
 
+/* NOTE MergeSort Properties
+ * 1. Time Complexity: Average/Worst: Theta(n^2) Best: Theta(n)
+ * 2. Space Complexity: Theta(1). No additional space (besides local variables) were needed. 
+ * 3. Stable Sorting: True. Duplicates remain in same order because of A[j] > key property.
+ * 4. In-Place: True. Everything is performed in same array.
+ * 5. Online: True! As we get a new element, we sort it!.*/
+
+
+
 /* Precondition: None.
  * Postcondition: Array is sorted.
  *

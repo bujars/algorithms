@@ -4,6 +4,7 @@
 #include "linearSearchAlgorithm.cpp"
 #include "binarySearchAlgorithm.cpp"
 #include "insertionSortAlgorithm.cpp"
+#include "mergeSortAlgorithm.cpp"
 using namespace std;
 
 
@@ -39,9 +40,11 @@ int main(){
 	A[2] = 3; 
 
 	size_t size = 10;
-	int Array [size] = { 1, 5, 3, 7, 2, 9, 8, 0, 6, 4 };
+	int Array [size] = { 1, 5, 3, 7, 2, 9, 8, 0, 6 , 4};
 	print(Array, size);
-	insertionSortAlgorithm(Array, size);
+	//insertionSortAlgorithm(Array, size);
+	/*cout << "here?" << endl;*/
+	mergeSortAlgorithm(Array, size, 0, 9);
 	print(Array, size);
 	
 	return 0;
