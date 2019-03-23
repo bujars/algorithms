@@ -10,7 +10,7 @@ using namespace std;
  * Worst Case: THe array is reversely sorted, so we go through both loops. Thus n-1*n = Theta(n^2).
  * Average Case: Note in most cases, the array is not sorted, so it comes down to Theta(n^2) becasue it goes through both loops in most cases. */
 void insertionSortAlgorithm(int A[], size_t n){
-	/*Start from index 2 becasue base case is that an array of size 1 is already sorted. */
+	/*Start from index 1 becasue base case is that an array of size 1 is already sorted. */
 	for(size_t i = 1; i < n; i++){
 		int key = A[i]; /*Store current value. */
 		size_t j = i-1; /*Create iterator that will go through previous elements*/
