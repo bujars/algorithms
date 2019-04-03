@@ -19,16 +19,19 @@
 int partition(int A[], size_t n, int p, int r){
 	int lastElement = A[r]; /*Remember r is our index.*/
 	int smallerIndex = p; /*Supposed to start 1 before, but in this case, we start from index 1 in the loop and always use our first value as 0. */
+	/* This index ^ just keeps track of the values smaller than our last/pivot element. */
+	
+	
 	for(int i = p; i < r; i++){ /*Because r has our last index and we want to stop right before it, which is just  n-2.*/
-		if(A[i] <= lastElement){
+		if(A[i] <= lastElement){ /*Only when we find a vlaue smaller than last, do we swap and incremt the index.*/
 			/*smallerIndex++;*/
 			int temp = A[i];
 			A[i] =A[smallerIndex];
 			A[smallerIndex] = temp;
 			smallerIndex++;
 		}
-	}
-	A[r] = A[smallerIndex];
+	} /* swap the pivot element with the location where all its values before are less than and all the values above are greater than. */
+	A[r] = A[smallerIndex]; /* Note because we started small at p and not p-1 and we incremented the index at the end, here we will have the right index and no need to do smallerIndex+1. */
 	A[smallerIndex] = lastElement;
 	return smallerIndex; 
 
@@ -36,26 +39,49 @@ int partition(int A[], size_t n, int p, int r){
 
 void quickSortAlgorithm(int A[], size_t n, int p, int r){
 	if(p < r){
-		int q = partition(A, n, p, r);
-		quickSortAlgorithm(A, n, p , q-1);
-		quickSortAlgorithm(A, n, q+1, r);
+		int q = partition(A, n, p, r); /* Here we will keep track of the pivot element, which again is in between the  other elements. */
+		quickSortAlgorithm(A, n, p , q-1); /* We recurisvely keep finding pivots before */
+		quickSortAlgorithm(A, n, q+1, r); /* and after */
 	}
 }
 
 #if 0
-int partition(int A[], size_t n, int p, int r){
-	int lastElement = A[r]; /*Remember r is our index.*/
-	int smallerIndex = 0; /*Supposed to start 1 before, but in this case, we start from index 1 in the loop and always use our first value as 0. */
-	for(int i = 0; i < r-1; i++){ /*Because r has our last index, which is just n-1. So n-2.*/
+
+/* Time Complexity */
+int partition(int A[], size_t n, int p, int r){ /* Theta (n)*/
+	int lastElement = A[r]; /* Theta(1) */
+	int smallerIndex = 0; /* Theta(1) */ 
+	for(int i = 0; i < r; i++){ /* Theta (n-1) ==> Theta(n). Always goes through the size of the array...its a for loop. */
 		if(A[i] < lastElement){
-			int temp = A[i];
-			A[i] =A[smallerIndex];
-			A[smallerIndex] = temp;
-			smallerIndex++;
+			int temp = A[i]; /* Theta(n) */
+			A[i] =A[smallerIndex]; /* Theta(n) */
+			A[smallerIndex] = temp; /* Theta(n) */
+			smallerIndex++; /* Theta(n) */
 		}
 	}
-	A[r] = A[smallerIndex];
-	A[smallerIndex] = lastElement;
+	A[r] = A[smallerIndex]; /* Theta(n) */
+	A[smallerIndex] = lastElement; /* Theta(n) */
 	return smallerIndex; 
 }
+
+
+
+void quickSortAlgorithm(int A[], size_t n, int p, int r){ /* T(n) ==> Because its a recurive function*/
+	if(p < r){ /* Theta(n) */
+		int q = partition(A, n, p, r); /* Theta(n) ==> As seen above, we go through the elements.*/
+		
+		/* NOTE: Depending on the array, here we have two cases. 
+		 * The first case is that our pivot is in the middle of the array. 
+		 * If so we continue to divide the array in half or T(n/2) ==> 
+		 * which comes out to be Theta(nlogn) ==> similar to merge sort. 
+		 * But, lets say the pivot is always the last/first element in the array (worst case possible), 
+		 * then our T(n-1) ==> which we see will come out to Theta(n^2).
+		 * Thus, time complexity all depends on the pivot, but is on average Theta(nlogn)*/
+		quickSortAlgorithm(A, n, p , q-1); 
+		quickSortAlgorithm(A, n, q+1, r);
+	}
+}
+
+
+
 #endif
