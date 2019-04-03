@@ -6,6 +6,7 @@
 #include "insertionSortAlgorithm.cpp"
 #include "mergeSortAlgorithm.cpp"
 #include "heapSortAlgorithm.cpp"
+#include "quickSortAlgorithm.cpp"
 using namespace std;
 
 
@@ -47,6 +48,7 @@ int main(){
 	/*cout << "here?" << endl;*/
     //mergeSortAlgorithm(Array, size, 0, 9);
 	heapSortAlgorithm(Array, size);
+	//quickSortAlgorithm(Array, size, 0, 9);
 	print(Array, size);
 
 
