@@ -1,3 +1,6 @@
+#include <cstdlib>
+#include <cassert>
+#include <iostream>
 
 /* QuickSort Algorithm is a sorting algorithm which paritions an array, and makes sure that all elements before the partition are less than/equal to and that all elements after the parition are greater than/equal to.
  *

@@ -7,6 +7,8 @@
 #include "mergeSortAlgorithm.cpp"
 #include "heapSortAlgorithm.cpp"
 #include "quickSortAlgorithm.cpp"
+#include "countingSortAlgorithm.cpp"
+
 using namespace std;
 
 
@@ -43,14 +45,19 @@ int main(){
 
 	size_t size = 10;
 	int Array [size] = { 1, 5, 3, 7, 2, 9, 8, 0, 6 , 4};
+	int B [size];
 	print(Array, size);
+	
+	cout << "B " << endl;
+	print(B, size);
 	//insertionSortAlgorithm(Array, size);
 	/*cout << "here?" << endl;*/
     //mergeSortAlgorithm(Array, size, 0, 9);
-	heapSortAlgorithm(Array, size);
+	//heapSortAlgorithm(Array, size);
 	//quickSortAlgorithm(Array, size, 0, 9);
+	countingSortAlgorithm(Array, B, size);
 	print(Array, size);
-
+	print(B, size);
 
 
 	return 0;
