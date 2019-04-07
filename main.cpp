@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <cassert>
 #include <iostream>
+#include <stdio.h>
 #include "linearSearchAlgorithm.cpp"
 #include "binarySearchAlgorithm.cpp"
 #include "insertionSortAlgorithm.cpp"
@@ -8,7 +9,7 @@
 #include "heapSortAlgorithm.cpp"
 #include "quickSortAlgorithm.cpp"
 #include "countingSortAlgorithm.cpp"
-
+#include "maximumSubArrayAlgorithm.cpp"
 using namespace std;
 
 
@@ -58,7 +59,15 @@ int main(){
 	countingSortAlgorithm(Array, B, size);
 	print(Array, size);
 	print(B, size);
-
-
+	cout << endl;
+	/*int arr[] = {2, 3, 4, 5,7};
+	int max_sum = maximumSubArrayAlgorithm(arr, 5, 0, 4);
+	cout << "Maximum = " << max_sum << endl;*/
+	
+	int arr[] = {2, 3, 4, 5, 7}; 
+   	int n = sizeof(arr)/sizeof(arr[0]); 
+   	int max_sum = maxSubArraySum(arr, 0, n-1); 
+   	printf("Maximum contiguous sum is %dn", max_sum); 
+   	getchar(); 
 	return 0;
 }
